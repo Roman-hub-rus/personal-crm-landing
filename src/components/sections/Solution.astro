@@ -1,0 +1,64 @@
+---
+import Eyebrow from "../Eyebrow.astro";
+import ScreenshotPlaceholder from "../ScreenshotPlaceholder.astro";
+import SectionTitle from "../SectionTitle.astro";
+
+// pretty: even line breaks, only where the mockup uses them
+const features = [
+  {
+    title: "Карточка на каждого человека",
+    text: "Имя, кто он, откуда вы знакомы, телефон, почта.",
+  },
+  {
+    title: "Заметки после разговора",
+    pretty: true,
+    text: "Поговорили — открыли карточку и дописали пару строк: о чём договорились, что обещали, что важно не забыть. Новые заметки ложатся в конец, и вся история общения остаётся перед глазами.",
+  },
+  {
+    title: "Быстрый поиск по имени",
+    text: "Начинаете набирать — список сразу сужается до нужного человека.",
+  },
+  {
+    title: "Добавить контакт — меньше минуты",
+    text: "Обязательно только имя, остальное можно дописать потом.",
+  },
+];
+---
+
+<section class="flex flex-col gap-6 pt-22 lg:gap-12 lg:pt-40">
+  <div class="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:items-end lg:gap-14">
+    <div class="flex flex-col gap-6">
+      <Eyebrow>02 — Решение</Eyebrow>
+      <SectionTitle>
+        Личная CRM — одно место для всех, кого вы <span class="text-accent">знаете</span>
+      </SectionTitle>
+    </div>
+    <p class="text-17 leading-body text-muted lg:text-19 lg:leading-body-lg">
+      Открыли — сразу видите список своих людей. Ничего лишнего.
+    </p>
+  </div>
+
+  <ScreenshotPlaceholder
+    label="скриншот: карточка с заметками"
+    labelLg="скриншот: список контактов и карточка с заметками"
+    class="h-70 lg:h-140"
+  />
+
+  <ol class="grid lg:grid-cols-4 lg:gap-8">
+    {
+      features.map((feature, i) => (
+        <li class="flex gap-2 border-t border-line py-5 last:border-b lg:flex-col lg:gap-2.5 lg:border-line-ui lg:py-0 lg:pt-6 lg:last:border-b-0">
+          <span class="w-9 shrink-0 pt-0.75 font-mono text-13 text-accent lg:w-auto lg:pt-0">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <div class="flex min-w-0 flex-col gap-1.5 lg:gap-2.5">
+            <h3 class="text-18 font-semibold lg:text-19">{feature.title}</h3>
+            <p class:list={["text-16 leading-body text-muted lg:leading-body-lg", feature.pretty && "text-pretty"]}>
+              {feature.text}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>

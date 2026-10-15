@@ -1,0 +1,24 @@
+---
+import CtaButton from "../CtaButton.astro";
+import ScreenshotPlaceholder from "../ScreenshotPlaceholder.astro";
+---
+
+<section class="flex flex-col gap-9 pt-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14 lg:pt-18">
+  <div class="flex flex-col gap-5 lg:gap-7">
+    <h1 class="font-display text-display font-semibold text-balance lg:text-display-lg">
+      Не теряйте людей, которых знаете <span class="text-accent">лично</span>
+    </h1>
+    <p class="text-17 leading-body text-pretty text-muted lg:max-w-130 lg:text-19 lg:leading-body-lg">
+      Личная CRM — простая записная книжка для вашего круга общения. Кто этот человек, откуда вы
+      знакомы, как с ним связаться и о чём договорились — всё в одной карточке. Без сделок, воронок и
+      планов продаж.
+    </p>
+    <div class="mt-2 flex flex-col gap-5 lg:mt-0 lg:flex-row lg:flex-wrap lg:items-center lg:gap-6">
+      <CtaButton />
+      <p class="text-13 text-faint lg:max-w-55 lg:text-14 lg:leading-note">
+        Хранится на вашем компьютере. Без рекламы и рассылок.
+      </p>
+    </div>
+  </div>
+  <ScreenshotPlaceholder label="скриншот: приложение, тёмная тема" class="h-85 lg:h-130" />
+</section>

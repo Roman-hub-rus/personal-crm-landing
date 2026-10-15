@@ -1,0 +1,32 @@
+---
+// Stand-in for an app screenshot until the real images arrive
+interface Props {
+  label: string;
+  // Desktop label, when it differs from the mobile one
+  labelLg?: string;
+  class?: string;
+}
+
+const { label, labelLg, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    // box-content: like the mockup, the border is added on top of the height
+    "bg-stub box-content flex items-center justify-center rounded-24 border border-line-strong",
+    "font-mono text-12 text-stub-ink lg:rounded-28 lg:text-13",
+    className,
+  ]}
+  aria-hidden="true"
+>
+  {
+    labelLg ? (
+      <>
+        <span class="lg:hidden">{label}</span>
+        <span class="hidden lg:inline">{labelLg}</span>
+      </>
+    ) : (
+      label
+    )
+  }
+</div>

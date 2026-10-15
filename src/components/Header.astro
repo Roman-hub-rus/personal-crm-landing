@@ -1,0 +1,14 @@
+---
+import { APP_URL } from "../config";
+---
+
+<header class="flex items-center justify-between py-4.5 lg:py-6">
+  <div class="font-display text-15 font-semibold lg:text-18">Личная CRM</div>
+  <a
+    href={APP_URL}
+    class="text-14 text-accent lg:rounded-full lg:border lg:border-line-ui lg:px-4.5 lg:py-2.5 lg:text-15 lg:font-medium"
+  >
+    <span class="lg:hidden">Открыть →</span>
+    <span class="hidden lg:inline">Открыть приложение →</span>
+  </a>
+</header>

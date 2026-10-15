@@ -1,0 +1,63 @@
+---
+import Eyebrow from "../Eyebrow.astro";
+import SectionTitle from "../SectionTitle.astro";
+
+// pretty: even line breaks, only where the mockup uses them
+const benefits = [
+  {
+    title: "Вы держите слово",
+    text: "Договорённости записаны, а не держатся на памяти.",
+  },
+  {
+    title: "Люди чувствуют внимание",
+    pretty: true,
+    text: "Вы помните, откуда вы знакомы и что для человека важно, — и это заметно.",
+  },
+  {
+    title: "Голова свободна",
+    pretty: true,
+    text: "Не нужно держать сотни деталей в памяти: они лежат в одном месте и находятся за секунды.",
+  },
+  {
+    title: "Ваши данные — только ваши",
+    pretty: true,
+    text: "Контакты хранятся у вас на компьютере, а не в чужом облаке. Никаких рассылок, рекламы и продажи данных.",
+  },
+];
+
+// box-content: like the mockup, min-height does not include the padding
+const card = "box-content flex flex-col gap-2 rounded-20 px-5 py-5.5 lg:justify-end lg:rounded-24";
+---
+
+<section class="flex flex-col gap-6 pt-22 lg:gap-10 lg:pt-40">
+  <div class="flex flex-col gap-6">
+    <Eyebrow>03 — Выгода</Eyebrow>
+    <SectionTitle>Что вы получаете</SectionTitle>
+  </div>
+
+  <ul class="grid gap-2.5 lg:grid-cols-3 lg:gap-3.5">
+    <li class:list={[card, "bg-accent text-bg lg:col-span-2 lg:min-h-55 lg:gap-3 lg:p-9"]}>
+      <h3 class="font-display text-19 font-semibold lg:text-28">Вы помните контекст</h3>
+      <p class="text-16 leading-body text-pretty lg:max-w-140 lg:text-18">
+        Перед звонком или встречей открываете карточку — и через десять секунд знаете, о чём говорили в
+        прошлый раз.
+      </p>
+    </li>
+    {
+      benefits.map((benefit, i) => (
+        <li
+          class:list={[
+            card,
+            "border bg-surface lg:min-h-50 lg:gap-2.5 lg:p-8",
+            i === benefits.length - 1 ? "border-accent/50" : "border-line",
+          ]}
+        >
+          <h3 class="font-display text-19 font-semibold lg:text-21">{benefit.title}</h3>
+          <p class:list={["text-16 leading-body text-muted lg:leading-body-lg", benefit.pretty && "text-pretty"]}>
+            {benefit.text}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+</section>

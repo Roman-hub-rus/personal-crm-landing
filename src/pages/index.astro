@@ -1,0 +1,28 @@
+---
+import Header from "../components/Header.astro";
+import Benefits from "../components/sections/Benefits.astro";
+import FinalCta from "../components/sections/FinalCta.astro";
+import Footer from "../components/sections/Footer.astro";
+import Hero from "../components/sections/Hero.astro";
+import Problem from "../components/sections/Problem.astro";
+import Solution from "../components/sections/Solution.astro";
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Личная CRM"
+  description="Личная CRM — простая записная книжка для вашего круга общения. Кто этот человек, откуда вы знакомы, как с ним связаться и о чём договорились — всё в одной карточке. Без сделок, воронок и планов продаж."
+>
+  <!-- box-content: like the mockup, the 1200px width does not include the side padding -->
+  <div class="mx-auto box-content max-w-page px-5 lg:px-10">
+    <Header />
+    <main>
+      <Hero />
+      <Problem />
+      <Solution />
+      <Benefits />
+      <FinalCta />
+    </main>
+    <Footer />
+  </div>
+</Base>

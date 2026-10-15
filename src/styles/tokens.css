@@ -1,0 +1,84 @@
+/*
+ * Design tokens: the only source of colors, fonts and sizes.
+ * Values come from design/README.md and the HTML mockups in design/.
+ * Tailwind defaults are cleared so only the values below can be used.
+ */
+@theme {
+  /* Colors */
+  --color-*: initial;
+  --color-bg: #0e0f0d; /* page background, text on accent */
+  --color-surface: #171815; /* cards */
+  --color-line: #232521; /* card borders, dividers */
+  --color-line-strong: #262823; /* screenshot borders, "Андрей Конф" chip */
+  --color-line-ui: #2f312c; /* desktop feature dividers, header button border */
+  --color-ink: #f3f4ef; /* main text */
+  --color-ink-2: #d9dbd3; /* problem cards text */
+  --color-muted: #a8aaa2; /* secondary text */
+  --color-faint: #7d7f77; /* notes, eyebrows, footer */
+  --color-accent: oklch(0.88 0.17 125); /* lime, ≈ #c5e84a */
+
+  /* Screenshot placeholders: delete together with them */
+  --color-stub: #161714;
+  --color-stub-2: #1b1c19;
+  --color-stub-ink: #6c6e67;
+
+  /* Fonts: the --font-unbounded/golos/jetbrains files are set up in astro.config.mjs */
+  --font-*: initial;
+  --font-display: var(--font-unbounded);
+  --font-sans: var(--font-golos);
+  --font-mono: var(--font-jetbrains);
+
+  /* Spacing step: p-5 = 5 × 4px = 20px, h-85 = 340px */
+  --spacing: 4px;
+
+  /* Page content width on desktop */
+  --container-page: 1200px;
+
+  /* Text sizes: the name is the size in px */
+  --text-*: initial;
+  --text-12: 12px;
+  --text-13: 13px;
+  --text-14: 14px;
+  --text-15: 15px;
+  --text-16: 16px;
+  --text-17: 17px;
+  --text-18: 18px;
+  --text-19: 19px;
+  --text-21: 21px;
+  --text-28: 28px;
+
+  /* Headings: h1 and the final call to action */
+  --text-display: 33px;
+  --text-display--line-height: 1.12;
+  --text-display--letter-spacing: -0.02em;
+  --text-display-lg: 56px;
+  --text-display-lg--line-height: 1.08;
+  --text-display-lg--letter-spacing: -0.03em;
+
+  /* Headings: section h2 */
+  --text-title: 28px;
+  --text-title--line-height: 1.15;
+  --text-title--letter-spacing: -0.02em;
+  --text-title-lg: 44px;
+  --text-title-lg--line-height: 1.1;
+  --text-title-lg--letter-spacing: -0.02em;
+
+  /* Line heights */
+  --leading-*: initial;
+  --leading-body: 1.5;
+  --leading-body-lg: 1.55;
+  --leading-note: 1.4;
+
+  /* Letter spacing */
+  --tracking-*: initial;
+  --tracking-eyebrow: 0.08em;
+
+  /* Corner radii: the name is the radius in px; buttons use rounded-full */
+  --radius-*: initial;
+  --radius-6: 6px;
+  --radius-18: 18px;
+  --radius-20: 20px;
+  --radius-22: 22px;
+  --radius-24: 24px;
+  --radius-28: 28px;
+}

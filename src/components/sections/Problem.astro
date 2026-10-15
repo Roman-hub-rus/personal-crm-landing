@@ -1,0 +1,38 @@
+---
+import Eyebrow from "../Eyebrow.astro";
+import SectionTitle from "../SectionTitle.astro";
+
+const situations = [
+  "Договорились созвониться «после праздников». Праздники прошли, а о чём хотели поговорить — забылось.",
+  "Человек пишет вам как старому знакомому, а вы лихорадочно вспоминаете, где вы встречались.",
+  "Заметки о людях разбросаны: что-то в телефоне, что-то в мессенджерах, большая часть — только в голове.",
+];
+
+const card =
+  "rounded-18 border border-line bg-surface p-4.5 text-16 leading-body text-pretty text-ink-2 lg:rounded-22 lg:p-7 lg:text-17 lg:leading-body-lg";
+---
+
+<!--
+  Mobile: eyebrow, title, cards, conclusion in one column.
+  Desktop: eyebrow, title and conclusion on the left, cards on the right.
+-->
+<section class="flex flex-col gap-6 pt-22 lg:flex-row lg:items-start lg:gap-14 lg:pt-40">
+  <div class="contents lg:flex lg:min-w-0 lg:basis-80 lg:grow lg:flex-col lg:gap-6">
+    <Eyebrow>01 — Проблема</Eyebrow>
+    <SectionTitle>Знакомо?</SectionTitle>
+    <p class="order-last mt-2 text-18 leading-body text-pretty text-ink lg:mt-0 lg:text-19 lg:leading-body-lg">
+      Телефонная книга хранит номер, но не хранит историю. <span class="text-muted"
+        >А обычные CRM придуманы для отделов продаж: десятки полей, сделки, этапы. Чтобы просто помнить о
+        людях, они слишком тяжёлые.</span
+      >
+    </p>
+  </div>
+  <ul class="grid min-w-0 gap-2.5 lg:basis-140 lg:grow-2 lg:grid-cols-2 lg:gap-3.5">
+    <li class={card}>
+      Полгода назад познакомились на конференции, обменялись номерами. Теперь в телефоне висит <span
+        class="rounded-6 bg-line-strong px-1.5 py-px text-ink">«Андрей Конф»</span
+      >, и вы не помните, кто это и о чём вы говорили.
+    </li>
+    {situations.map((text) => <li class={card}>{text}</li>)}
+  </ul>
+</section>
