@@ -21,10 +21,10 @@ pnpm preview  # посмотреть собранный dist/
 
 ## Выкатка
 
-Push в `main` → GitHub Actions (`.github/workflows/deploy.yml`) собирает `dist/` → `rsync --delete` в папку сайта на хостинге reg.ru → проверка, что https://myfirstcrm.site отвечает 200 и отдаёт новую сборку.
+Push в `main` → GitHub Actions (`.github/workflows/deploy.yml`) собирает `dist/` → `rsync --delete` в папку `/var/www/myfirstcrm.site` на нашем сервере (FirstVDS, общий с приложением) → nginx отдаёт эту папку → проверка, что https://myfirstcrm.site отвечает 200 и отдаёт новую сборку.
 
 Настройки лежат в секретах репозитория (Settings → Secrets and variables → Actions):
 
-- `SSH_PRIVATE_KEY` — ключ деплоя; его открытая часть добавлена на хостинг
-- `SSH_KNOWN_HOSTS` — отпечаток сервера хостинга
-- `DEPLOY_HOST`, `DEPLOY_USER`, `DEPLOY_PATH` — сервер, логин хостинга и папка сайта
+- `SSH_PRIVATE_KEY` — ключ деплоя. Его открытая часть добавлена на сервер с ограничением: этим ключом можно только залить файлы в папку лендинга, войти на сервер с ним нельзя
+- `SSH_KNOWN_HOSTS` — отпечаток сервера
+- `DEPLOY_HOST`, `DEPLOY_USER` — адрес сервера и пользователь, под которым идёт заливка
