@@ -17,11 +17,6 @@
   --color-faint: #7d7f77; /* notes, eyebrows, footer */
   --color-accent: oklch(0.88 0.17 125); /* lime, ≈ #c5e84a */
 
-  /* Screenshot placeholders: delete together with them */
-  --color-stub: #161714;
-  --color-stub-2: #1b1c19;
-  --color-stub-ink: #6c6e67;
-
   /* Fonts: the --font-unbounded/golos/jetbrains files are set up in astro.config.mjs */
   --font-*: initial;
   --font-display: var(--font-unbounded);

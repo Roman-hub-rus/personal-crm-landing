@@ -20,6 +20,7 @@ pnpm preview  # посмотреть собранный dist/
 - `src/config.ts` — адрес приложения, куда ведут все кнопки
 - `src/components/sections/` — блоки страницы по порядку: Hero, Problem, Solution, Benefits, FinalCta, Footer
 - `astro.config.mjs` — шрифты (Unbounded, Golos Text, JetBrains Mono): при сборке скачиваются с Google Fonts и отдаются с нашего сервера
+- `src/assets/screenshots/` — скриншоты приложения в PNG: `hero-*` — первый экран, `solution-*` — блок «Решение»; `*-mobile` — для телефона, `*-desktop` — для экранов от 640px. При сборке Astro сам сжимает их в WebP нужных размеров (библиотека sharp). Новый скриншот — заменить файл с тем же именем, сохранив пропорции
 - `design/` — макет и тексты
 
 ## Выкатка

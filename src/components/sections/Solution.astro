@@ -1,6 +1,8 @@
 ---
 import Eyebrow from "../Eyebrow.astro";
-import ScreenshotPlaceholder from "../ScreenshotPlaceholder.astro";
+import AppScreenshot from "../AppScreenshot.astro";
+import solutionDesktop from "../../assets/screenshots/solution-desktop.png";
+import solutionMobile from "../../assets/screenshots/solution-mobile.png";
 import SectionTitle from "../SectionTitle.astro";
 
 // pretty: even line breaks, only where the mockup uses them
@@ -38,10 +40,13 @@ const features = [
     </p>
   </div>
 
-  <ScreenshotPlaceholder
-    label="скриншот: карточка с заметками"
-    labelLg="скриншот: список контактов и карточка с заметками"
+  <AppScreenshot
+    mobile={solutionMobile}
+    desktop={solutionDesktop}
+    alt="Поиск по списку контактов и заметки в карточке контакта"
+    desktopSizes="(min-width: 1240px) 1200px, calc(100vw - 40px)"
     class="h-70 lg:h-140"
+    imageClass="object-top"
   />
 
   <ol class="grid lg:grid-cols-4 lg:gap-8">

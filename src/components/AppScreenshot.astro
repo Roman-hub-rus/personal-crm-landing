@@ -1,0 +1,46 @@
+---
+// App screenshot in a rounded frame: a phone-sized image on narrow screens, a wide one from 640px.
+// Astro converts the PNGs from src/assets/screenshots to WebP in several sizes at build time.
+import type { ImageMetadata } from "astro";
+import { getImage } from "astro:assets";
+
+interface Props {
+  mobile: ImageMetadata;
+  desktop: ImageMetadata;
+  alt: string;
+  // How wide the wide image is shown, so the browser downloads a fitting file size
+  desktopSizes: string;
+  // First screen: load right away instead of when scrolled to
+  eager?: boolean;
+  class?: string;
+  imageClass?: string;
+}
+
+const { mobile, desktop, alt, desktopSizes, eager = false, class: className, imageClass } = Astro.props;
+
+const fitting = (widths: number[], image: ImageMetadata) => widths.filter((width) => width <= image.width);
+const mobileImage = await getImage({ src: mobile, widths: fitting([390, 780, 1120], mobile), format: "webp" });
+const desktopImage = await getImage({ src: desktop, widths: fitting([600, 1200, 1600, 2400], desktop), format: "webp" });
+---
+
+<picture
+  class:list={[
+    // box-content: like the mockup, the border is added on top of the height
+    "box-content block overflow-hidden rounded-24 border border-line-strong bg-bg lg:rounded-28",
+    className,
+  ]}
+>
+  <source media="(min-width: 640px)" srcset={desktopImage.srcSet.attribute} sizes={desktopSizes} type="image/webp" />
+  <img
+    src={mobileImage.src}
+    srcset={mobileImage.srcSet.attribute}
+    sizes="calc(100vw - 40px)"
+    alt={alt}
+    width={mobile.width}
+    height={mobile.height}
+    loading={eager ? "eager" : "lazy"}
+    fetchpriority={eager ? "high" : "auto"}
+    decoding="async"
+    class:list={["size-full object-cover", imageClass]}
+  />
+</picture>

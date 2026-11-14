@@ -16,12 +16,3 @@
     outline-offset: 3px;
   }
 }
-
-/* Striped background of screenshot placeholders */
-@utility bg-stub {
-  background: repeating-linear-gradient(
-    135deg,
-    var(--color-stub) 0 calc(var(--spacing) * 2.5),
-    var(--color-stub-2) calc(var(--spacing) * 2.5) calc(var(--spacing) * 5)
-  );
-}
