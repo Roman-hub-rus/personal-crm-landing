@@ -31,3 +31,13 @@ Push в `main` → GitHub Actions (`.github/workflows/deploy.yml`) собира�
 - `SSH_PRIVATE_KEY` — ключ деплоя. Его открытая часть добавлена на сервер с ограничением: этим ключом можно только залить файлы в папку лендинга, войти на сервер с ним нельзя
 - `SSH_KNOWN_HOSTS` — отпечаток сервера
 - `DEPLOY_HOST`, `DEPLOY_USER` — адрес сервера и пользователь, под которым идёт заливка
+
+## Заголовки безопасности (nginx)
+
+Конфиг nginx лендинга лежит в папке `nginx/` — для истории, сам деплой его не выкатывает:
+
+- `nginx/myfirstcrm-landing-headers.conf` — заголовки безопасности: HSTS, CSP (встроенные скрипты и стили разрешены), запрет встраивания во фреймы, Referrer-Policy, nosniff, Permissions-Policy. На сервере: `/etc/nginx/snippets/myfirstcrm-landing-headers.conf`
+- `nginx/landing-server.conf` — копия блока лендинга из общего с приложением файла `/etc/nginx/sites-available/myfirstcrm.conf`. Там же включено `server_tokens off` — nginx не показывает свою версию
+
+Поменяли заголовки — скопировать файл на сервер, проверить `sudo nginx -t` и выполнить `sudo systemctl reload nginx`.
+Если на страницу добавится что-то с чужого сайта (картинка, скрипт, шрифт), его адрес нужно разрешить в CSP, иначе браузер его заблокирует.
