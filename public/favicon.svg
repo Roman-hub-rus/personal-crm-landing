@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Colors mirror --color-bg and --color-accent in src/styles/tokens.css (a favicon cannot read CSS variables) -->
+  <rect width="32" height="32" rx="7" fill="#0e0f0d"/>
+  <path d="M9.5 8H23.5V24H19.5V12H13.5V18Q13.5 24 8.5 24V20Q9.5 20 9.5 18Z" fill="oklch(0.88 0.17 125)"/>
+</svg>
